@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+           <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+           <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,100' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/swipebox.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/FCMPlugin.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+      
+         <script type="text/javascript">
+		  function onLoad() {
+        document.addEventListener("deviceready", Fire, false);
+		
+		
+                               }
+			function Fire() {
+				
+				alert("Check");
+
+    FCMPlugin.getToken(
+      function (token) {
+          alert("Token: " + token);
+      },
+      function (err) {
+       		   alert("Error: " + 'error retrieving token: ' + err);
+      }
+    );
+
+};
+
+        </script>
+
+    <script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#insert").click(function(){
+			
+			
+		    var title=$("#name").val();
+            var duration=$("#password").val();
+			
+            if(title!="" & duration!="")
+            {
+				
+                $.ajax({	
+						
+                    type: "POST",
+                    //url: "http://127.0.0.1/phonelogin/loginn.php",
+                    url:"http://project21.piresearch.in/app/loginn.php",
+                    data: {email: title, password :duration},
+					dataType: 'json',
+                    crossDomain: true,
+                    cache: false,
+                    success: function(response){
+                        alert ("response"); 
+					    if (response.success) {
+							
+							localStorage.setItem("PMUsername",title);
+							localStorage.setItem("PMPassword",password);
+                    	    window.location="main.html";
+                        } 
+                        else {
+
+                            alert("Your login failed");
+                            //window.location("main.html");
+                        }
+                    }
+                });
+            }return false;
+        });
+    });
+	
+
+    </script>
+</head>
+<body onload="onLoad();">
+
+<div id="main" class="main">
+
+      <!-- Toolbar -->
+      <div id="toolbar" class="primary-color tool-login">
+        </div>
+      </div>
+      
+      <div class="page fullscreen grey lighten-4">
+        
+        <div class="login-form z-depth-1">
+          <h1>Login</h1>
+          <div class="input-field">
+            <i class="ion-android-contact prefix"></i> 
+            <input class="validate" id="name" type="text"> 
+            <label for="login" placeholder="Username"></label>
+          </div>
+
+          <div class="input-field" style="margin-bottom:20px;">
+            <i class="ion-android-lock prefix"></i> 
+            <input class="validate" id="password" type="password"> 
+            <label for="login-psw" placeholder="Password"></label>
+          </div>
+
+          <a class="waves-effect waves-light btn-large accent-color block m-b-20 animated bouncein delay-2"><input type="button" id="insert" class="button button-block" value="Login"/></a> 
+          <span>Already Have Accountt? <a class="primary-text" href="register.html">Sign Up</a></span>
+        </div>
+    
+      </div>
+
+</body>
+</html>

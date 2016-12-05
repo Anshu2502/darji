@@ -1,0 +1,270 @@
+<html>
+<head>
+
+
+    <meta charset="utf-8">
+
+    <title>Mobile Darzi</title>
+
+    <meta name="description" content="Material Design Mobile Template">
+
+    <meta name="HandheldFriendly" content="True">
+
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+
+
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+
+    <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+
+    <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
+
+    <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+    <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+
+    <meta name="msapplication-TileColor" content="#222222">
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,100' rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+    <!-- Icons -->
+
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+
+
+
+    <!-- Stylesheets -->
+
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/materialize.min.css">
+
+    <link rel="stylesheet" href="css/swipebox.min.css">
+
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+
+    
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    
+           
+        
+        
+        
+    <script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#insert").click(function(){
+			
+			
+			
+			
+			
+			
+			var name=$("#uname").val();
+			
+            var number=$("#unumber").val();
+			
+			var email=$("#uemail").val();
+			
+			var shopname=$("#ushopname").val();
+			
+			
+			var password=$("#upassword").val();
+			
+			
+			var confirm_password=$("#urpassword").val();
+			
+			var gender = $('input[name=gender]:checked').val();
+			
+var dataString= "uname="+name+"&unumber="+number+"&uemail="+email+"&ushopname="+shopname+"&uconfirm_password="+confirm_password+"&ugender="+gender;
+			
+            if(name!="" & number!="" & email!="" & shopname!="" & password !="" & confirm_password !=""){
+			
+			if(password==confirm_password)
+			{
+				
+				
+				alert(dataString);
+				//data: {uname: name, unumber :number, uemail:email, ushopname:shopname, uconfirm_password:confirm_password, ugender:gender}
+                $.ajax({		
+					
+                    type: "POST",
+                    //url: "http://127.0.0.1/phonelogin/loginn.php",
+                    url:"http://project21.piresearch.in/app/register.php",
+                    data: dataString,
+					dataType: 'json',
+                    crossDomain: true,
+                    cache: false,
+                    success: function(response){
+                        alert ("response"); 
+					    if (response.success) { 
+						
+                              alert('Login Success!!!!');
+                        } 
+                        else {
+                                
+                            alert("Your registration failed");
+                            //window.location("main.html");
+                        }
+                    }
+                });
+				
+				}else{
+					
+					alert("Password Must be Same");
+					
+					}
+            
+				
+				
+            }return false;
+        });
+    });
+	
+	
+
+	
+    </script>
+</head>
+<body>
+
+      <div id="toolbar" class="primary-color tool-login">
+
+      
+
+      </div>
+
+
+<div class="page fullscreen grey lighten-4">
+ 
+        
+
+        <div class="login-form z-depth-1">
+
+          <h1>Tailor Registration</h1>
+
+        <label for="uname">Full Name</label>
+          <div class="input-field">
+
+            
+
+            <input class="validate" id="uname" type="text"> 
+
+            
+
+          </div>
+
+
+     <label for="unumber">Mobile Number</label>
+          <div class="input-field" style="margin-bottom:20px;">
+
+            
+
+            <input class="validate" id="unumber" type="text"> 
+
+          
+
+          </div>
+           <label for="uemail">Email</label>
+          <div class="input-field" style="margin-bottom:20px;">
+
+           
+
+            <input class="validate" id="uemail" type="text"> 
+
+           
+
+          </div>
+          <label for="login-psw">Gender</label>
+          <div class="input-field" style="margin-bottom:20px;">
+          
+
+            
+
+            <input class="validate" value="male" name="gender"  id="umale" type="radio"> 
+
+            <label for="umale">male</label>
+
+          </div>
+           <div class="input-field" style="margin-bottom:20px;">
+           
+            <input class="validate" value="female" name="gender" id="ufemale" type="radio"> 
+
+            <label for="ufemale">Female</label>
+
+          </div>
+          
+          
+          
+           <label for="ushopname">Shop Name</label>
+          
+          <div class="input-field">
+
+            
+            <input class="validate" id="ushopname" type="text"> 
+
+           
+
+          </div>
+          
+          <label for="upassword">Password</label>
+           
+           <div class="input-field" style="margin-bottom:20px;">
+
+            
+
+            <input class="validate" id="upassword" type="password"> 
+
+            
+
+          </div>
+          
+           <label for="urpassword">Retype Password</label>
+          <div class="input-field" style="margin-bottom:20px;">
+
+            
+
+            <input class="validate" id="urpassword" type="password"> 
+
+           
+
+          </div>
+          <p class="remember animated bouncein delay-6">
+            <input type="checkbox" id="test5">
+            <label for="test5">I agree to the terms and condition of Mobile Darzi</label>
+          </p>
+
+
+
+           <a class="waves-effect waves-light btn-large accent-color block m-b-20 animated bouncein delay-2"><input type="button" id="insert" class="button button-block" value="Reg"/></a>
+
+         
+
+        </div>
+
+    
+
+      </div>
+    
+    
+</body>
+
+</html>

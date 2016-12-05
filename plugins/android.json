@@ -1,0 +1,25 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-fcm": {
+            "PACKAGE_NAME": "com.hsup.hello"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.hsup.hello"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.hsup.hello"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.hsup.hello"
+        }
+    }
+}

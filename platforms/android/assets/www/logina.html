@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+           <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/firebase.js"></script>
+        
+         <script type="text/javascript">
+		  function onLoad() {
+			  Fire();
+     document.addEventListener("deviceready", Fire, false);
+		
+		
+    }
+		        </script>
+        
+    <script type="text/javascript">
+   // $(document).ready(function()
+//    {
+//        $("#insert").click(function(){
+//			
+//			
+//			
+//		    var title=$("#name").val();
+//            var duration=$("#password").val();
+//			
+//            if(title!="" & duration!="")
+//            {
+//				
+//                $.ajax({	
+//								
+//					
+//                    type: "POST",
+//                    //url: "http://127.0.0.1/phonelogin/loginn.php",
+//                    url:"http://project21.piresearch.in/app/loginn.php",
+//                    data: {email: title, password :duration},
+//					dataType: 'json',
+//                    crossDomain: true,
+//                    cache: false,
+//                    success: function(response){
+//                        alert ("response"); 
+//					    if (response.success) {
+//							
+//                          
+//							//localStorage.setItem("PMUsername",title);
+//							//localStorage.setItem("PMPassword",password);
+//                    	   //    window.location="home.html";
+//                        } 
+//                        else {
+//
+//                            alert("Your login failed");
+//                            //window.location("main.html");
+//                        }
+//                    }
+//                });
+//            }return false;
+//        });
+//    });
+//	
+	
+	function Fire() {
+				
+				alert("Check");
+
+    FCMPlugin.getToken(
+      function (token) {
+          alert("Token: " + token);
+	
+      },
+      function (err) {
+       		   alert("Error: " + 'error retrieving token: ' + err);
+      }
+    );
+
+};
+
+
+	
+	
+	
+    </script>
+</head>
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <h1 class="title">Login</h1>
+        
+    </div><br/><br/>
+    <div class="list">
+        
+        <div class="item">
+            <label>Username</label>
+            <input type="text" id="name" value=""/>
+        </div>
+        <div class="item">
+            <label>Password</label>
+            <input type="text" id="password" value=""/>
+        </div>
+       
+        <div class="item">
+            <input type="button" id="insert" class="button button-block" value="Login"/>
+        </div>
+    </div>
+</body>
+</html>

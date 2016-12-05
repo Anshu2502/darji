@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>READ JSON Example (AJAX)</title>
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+ <script type="text/javascript">
+ $(document).ready(function(){ 
+
+    var sidd = "anshulkhare50@gmail.com";
+    $.ajax({
+        type : "POST",
+        url : "http://project21.piresearch.in/app/profile.php",
+		crossDomain: true,
+        cache: false,
+        data : {email:sidd},
+        success: function(data){
+			var result=$.parseJSON(data);
+      //alert(data);
+          if(data)
+         $.each(result, function(i, field){
+ $("#output").append("Name: "+ field.tname + " Gender: "+field.gender +" Email:"+field.temail+"<br/>");
+ });
+      }
+    });
+
+});
+</script>
+
+ 
+ 
+</head>
+<body>
+ <div id="output">
+
+ </div>
+</body>
+</html>

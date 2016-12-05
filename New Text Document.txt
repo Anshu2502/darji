@@ -1,0 +1,17 @@
+<script type="text/javascript">
+ $(document).ready(function(){ 
+$("#comp").change(function() {
+    var sid = $(this).val();
+    $.ajax({
+        type : "POST",
+        url : "<?php echo base_url('index.php/Product/ajax_access_uniform');?>",
+        data : {sid:sid},
+        success: function(data){
+      //alert(data);
+          if(data)
+          $("#apppent_id").html(data);
+      }
+    });
+});
+});
+</script>

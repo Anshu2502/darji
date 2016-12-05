@@ -1,0 +1,35 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function()
+    {
+       
+	   setInterval(function(){
+		  var u_name=localStorage.getItem("PMUsername");
+            var u_pwd=localStorage.getItem("PMPassword");
+			
+			if(u_name==""||u_name==null ||u_name=="null" || u_name=="undefined" ||
+				u_pwd==""||u_pwd==null ||u_pwd=="null" || u_pwd=="undefined"
+				){
+					
+				    window.location="login.html";
+				}
+				else
+				{
+				
+					window.location="main.html";
+				}		
+		   },3000);	
+			
+      
+    });
+    </script>
+</head>
+<body>
+    <p><b>This text is bold</b></p>
+<p><i>This text is italic</i></p>
+<p>This is<sub> subscript</sub> and <sup>superscript</sup></p>
+</body>
+</html>
